@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+void string(char *greet[], int count) {
+   
+    for (int i = 0; i < count; i++) {
+        printf("%s\n", greet[i]);
+    }
+
+    
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; greet[i][j] != '\0'; j++) {
+            if (greet[i][j] == 'i') {
+                greet[i][j] = 'y';
+            } else if (greet[i][j] == 't') {
+                greet[i][j] = 'T';
+            }
+        }
+    }
+}
+
+int main() {
+    
+    char greet1[4][20] = {"Hai teena", "Hai teena1", "Hai teena2", "Hai teena3"};
+
+    char *greetptr[4];
+        for(int i=0;i<4;i++){
+            greetptr[i]=greet1[i];
+        }
+    
+
+    string(greetptr, 4);
+
+    printf("new strings:\n");
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n", greet1[i]);
+    }
+
+    return 0;
+}
